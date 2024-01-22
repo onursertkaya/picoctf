@@ -11,6 +11,11 @@ def bash(cmd: str, get_stdout: bool = False) -> Optional[str]:
     return result.stdout if get_stdout else None
 
 
-def cat(filepath: str):
+def cat(filepath: str, get_content: bool = False) -> Optional[str]:
     with open(filepath, encoding="utf-8") as f:
-        print(f.read())
+        content = f.read()
+    print(content)
+    if get_content:
+        return content
+    return None
+
